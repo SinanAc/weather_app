@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/app/controller/home/home_controller.dart';
 import 'package:weatherapp_starter_project/app/view/utils/box_deco.dart';
+import 'package:weatherapp_starter_project/app/view/utils/sized_boxes.dart';
 import 'package:weatherapp_starter_project/app/view/widgets/category_card.dart';
 import 'package:weatherapp_starter_project/app/view/widgets/search_field.dart';
+import 'package:weatherapp_starter_project/app/view/widgets/text_widget.dart';
 
 class HomeScreen extends GetView<HomeController> {
   HomeScreen({Key? key}) : super(key: key);
@@ -21,12 +23,25 @@ class HomeScreen extends GetView<HomeController> {
               () {
                 final data = control.dataModel.value;
                 if (data.weather == null) {
-                  return const Align(
-                      alignment: Alignment.center,
-                      child: CircularProgressIndicator());
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        TextWidget(
+                            text: 'Please wait...',
+                            fontSize: 18),
+                        KSizedBox.kHeigh_10,
+                        CircularProgressIndicator(),
+                      ],
+                    ),
+                  );
                 }
                 final String temperature =
                     ((data.main?.temp)! * 10.0).toString();
+                final String minTemp =
+                    ((data.main?.tempMin)! * 10.0).toString();
+                final String maxTemp =
+                    ((data.main?.tempMax)! * 10.0).toString();
                 return SingleChildScrollView(
                   child: Column(
                     children: [
@@ -36,14 +51,9 @@ class HomeScreen extends GetView<HomeController> {
                           children: [
                             const Icon(Icons.place_rounded,
                                 color: Colors.white),
-                            const SizedBox(width: 5),
-                            Text(
-                              control.userLocation.value,
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            KSizedBox.kWidth_5,
+                            TextWidget(
+                                text: control.userLocation.value, fontSize: 18),
                             const Spacer(),
                             control.isLoading.value
                                 ? const SizedBox(
@@ -62,27 +72,19 @@ class HomeScreen extends GetView<HomeController> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      KSizedBox.kHeigh_30,
                       Image.asset('assets/weather/home.png'),
-                      const SizedBox(height: 10),
-                      Text(
-                        '${temperature.substring(0, 2)}.${temperature.substring(3, 4)}°',
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        '${data.weather?.first.description}',
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 20),
-                      SearchField(
-                          searchController: controller.searchController),
-                      const SizedBox(height: 25),
+                      KSizedBox.kHeigh_10,
+                      TextWidget(
+                          text:
+                              '${temperature.substring(0, 2)}.${temperature.substring(3, 4)}°',
+                          fontSize: 40),
+                      TextWidget(
+                          text: '${data.weather?.first.description}',
+                          fontSize: 25),
+                      KSizedBox.kHeigh_20,
+                      SearchField(),
+                      KSizedBox.kHeigh_25,
                       Padding(
                         padding: const EdgeInsets.only(left: 12.0),
                         child: LimitedBox(
@@ -91,24 +93,37 @@ class HomeScreen extends GetView<HomeController> {
                             scrollDirection: Axis.horizontal,
                             children: [
                               CategoryCard(
-                                  img: 'assets/icons/clouds.png',
-                                  title: 'Clouds',
-                                  data: data.clouds?.all ?? '0'),
-                              const SizedBox(width: 10),
+                                  img: 'assets/weather/splash.png',
+                                  title: 'Min temp',
+                                  data:
+                                      '${minTemp.substring(0, 2)}.${minTemp.substring(3, 4)}°'),
+                              KSizedBox.kWidth_10,
                               CategoryCard(
                                   img: 'assets/icons/humidity.png',
                                   title: 'Humidity',
-                                  data: data.main?.humidity.toString() ?? '0'),
-                              const SizedBox(width: 10),
+                                  data: '${data.main?.humidity ?? '0'}%'),
+                              KSizedBox.kWidth_10,
+                              CategoryCard(
+                                  img: 'assets/weather/splash.png',
+                                  title: 'Max temp',
+                                  data:
+                                      '${maxTemp.substring(0, 2)}.${maxTemp.substring(3, 4)}°'),
+                              KSizedBox.kWidth_10,
                               CategoryCard(
                                   img: 'assets/icons/windspeed.png',
                                   title: 'Wind',
-                                  data: data.wind?.speed.toString() ?? '0'),
-                              const SizedBox(width: 10),
+                                  data: '${data.wind?.speed ?? '0'}/km'),
+                              KSizedBox.kWidth_10,
+                              CategoryCard(
+                                  img: 'assets/icons/clouds.png',
+                                  title: 'Clouds',
+                                  data: data.clouds?.all ?? '0'),
+                              KSizedBox.kWidth_10,
                               CategoryCard(
                                   img: 'assets/icons/sea_level.png',
                                   title: 'Sea level',
-                                  data: data.main?.seaLevel ?? '0'),
+                                  data: '${data.main?.seaLevel ?? '0'} ft'),
+                              KSizedBox.kWidth_10,
                             ],
                           ),
                         ),

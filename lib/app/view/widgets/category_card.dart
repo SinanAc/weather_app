@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherapp_starter_project/app/view/widgets/text_widget.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
@@ -24,15 +25,7 @@ class CategoryCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Center(
-            child: Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1,
-              ),
-            ),
+            child: TextWidget(text: title, fontSize: 15)
           ),
           Image(
             height: 100.0,
@@ -40,15 +33,7 @@ class CategoryCard extends StatelessWidget {
             image: AssetImage(img),
           ),
           Center(
-            child: Text(
-              data,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 27,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1,
-              ),
-            ),
+            child: TextWidget(text: data, fontSize: 28)
           ),
         ],
       ),

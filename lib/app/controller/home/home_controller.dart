@@ -10,10 +10,10 @@ class HomeController extends GetxController {
   final searchController = TextEditingController();
   RxBool isLoading = false.obs;
   RxString userLocation = 'Location'.obs;
-  RxString location = 'kerala'.obs;
-  final dataModel = WeatherModel().obs;
+  RxString location = ''.obs;
+  final dataModel = WeatherModel().obs;       
 
-  // fuction to get user's current location
+  //fuction to get user's current location
   Future<void> getUserLocation() async {
     isLoading(true);
     LocationPermission permission = await Geolocator.requestPermission();
@@ -40,6 +40,7 @@ class HomeController extends GetxController {
     isLoading(false);
   }
 
+  // function to get user's current location's weather data
   Future<void> getData() async {
     final data = await ApiService.getWeatherDdata(location.value);
     try {
@@ -47,14 +48,15 @@ class HomeController extends GetxController {
         dataModel.value = data;
       }
     } catch (e) {
-      Get.snackbar('error', '$e');
+      Get.snackbar('Something went wrong', 'Please try again later');
     }
   }
 
   @override
   void onInit() {
-    getUserLocation();
-    getData();
+    getUserLocation().then((_) {
+      getData();
+    });
     super.onInit();
   }
 }

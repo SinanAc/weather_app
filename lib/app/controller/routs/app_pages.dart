@@ -17,12 +17,10 @@ class AppPages {
         page: () => const SplashScreen(),
         binding: SplashBinding()),
     GetPage(
-        name: Routes.home,
-        page: () =>  HomeScreen(),
-        binding: HomeBinding()),
+        name: Routes.home, page: () => HomeScreen(), binding: HomeBinding()),
     GetPage(
         name: Routes.search,
-        page: () => const SearchScreen(),
+        page: () => SearchScreen(),
         binding: SearchBinding()),
   ];
 }

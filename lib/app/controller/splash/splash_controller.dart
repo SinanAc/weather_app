@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/app/controller/routs/app_routs.dart';
 
