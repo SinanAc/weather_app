@@ -45,26 +45,26 @@ class SearchScreen extends GetView<SearchController> {
                   automaticallyImplyLeading: false,
                   backgroundColor: Colors.transparent,
                   title: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.place_rounded,
-                                color: Colors.white),
-                            KSizedBox.kWidth_5,
-                            TextWidget(
-                                text: data.name ?? 'No name provided',
-                                fontSize: 18),
-                          ],
-                        ),
-                      ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.place_rounded, color: Colors.white),
+                        KSizedBox.kWidth_5,
+                        TextWidget(
+                            text: data.name ?? 'No name provided',
+                            fontSize: 18),
+                      ],
+                    ),
+                  ),
                 ),
                 body: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     KSizedBox.kHeigh_30,
                     Image.asset(
-                        'assets/weather/${data.weather?.first.icon}.png',),
+                      'assets/weather/${data.weather?.first.icon}.png',
+                    ),
                     KSizedBox.kHeigh_10,
                     TextWidget(
                         text:

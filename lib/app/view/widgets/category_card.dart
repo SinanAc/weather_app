@@ -25,7 +25,7 @@ class CategoryCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Center(
-            child: TextWidget(text: title, fontSize: 15)
+            child: TextWidget(text: title, fontSize: 15),
           ),
           Image(
             height: 100.0,
@@ -33,7 +33,7 @@ class CategoryCard extends StatelessWidget {
             image: AssetImage(img),
           ),
           Center(
-            child: TextWidget(text: data, fontSize: 28)
+            child: TextWidget(text: data, fontSize: 28),
           ),
         ],
       ),

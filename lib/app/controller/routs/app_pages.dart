@@ -8,19 +8,24 @@ import 'package:weatherapp_starter_project/app/view/screens/search_screen.dart';
 import 'package:weatherapp_starter_project/app/view/screens/splash_screen.dart';
 
 class AppPages {
-  AppPages._();
+  //AppPages._();
   static const initial = Routes.splash;
 
   static final routes = [
     GetPage(
-        name: Routes.splash,
-        page: () => const SplashScreen(),
-        binding: SplashBinding()),
+      name: Routes.splash,
+      page: () => const SplashScreen(),
+      binding: SplashBinding(),
+    ),
     GetPage(
-        name: Routes.home, page: () => HomeScreen(), binding: HomeBinding()),
+      name: Routes.home,
+      page: () => HomeScreen(),
+      binding: HomeBinding(),
+    ),
     GetPage(
-        name: Routes.search,
-        page: () => SearchScreen(),
-        binding: SearchBinding()),
+      name: Routes.search,
+      page: () => SearchScreen(),
+      binding: SearchBinding(),
+    ),
   ];
 }

@@ -18,12 +18,11 @@ class ApiService {
     } on DioError catch (e) {
       if (e.response!.statusCode == 404) {
         return WeatherModel(message: 'City not found');
-      } else if(e.type==DioErrorType.sendTimeout
-       ||e.type==DioErrorType.connectTimeout 
-       || e.type==DioErrorType.receiveTimeout
-       ){
+      } else if (e.type == DioErrorType.sendTimeout ||
+          e.type == DioErrorType.connectTimeout ||
+          e.type == DioErrorType.receiveTimeout) {
         return WeatherModel(message: 'Connection timed out !!');
-      }else{
+      } else {
         return WeatherModel(message: e.message);
       }
     } on TimeoutException catch (e) {

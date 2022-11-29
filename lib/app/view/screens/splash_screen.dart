@@ -12,12 +12,13 @@ class SplashScreen extends GetView<SplashController> {
   Widget build(BuildContext context) {
     Get.put(SplashController());
     return Container(
-        decoration: BoxDeco.containerBoxDecoration(),
-        child: Center(
-            child: Image.asset(
+      decoration: BoxDeco.containerBoxDecoration(),
+      child: Center(
+        child: Image.asset(
           'assets/weather/splash.png',
           height: 150,
-        )));
+        ),
+      ),
+    );
   }
-
 }

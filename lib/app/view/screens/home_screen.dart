@@ -27,9 +27,7 @@ class HomeScreen extends GetView<HomeController> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        TextWidget(
-                            text: 'Please wait...',
-                            fontSize: 18),
+                        TextWidget(text: 'Please wait...', fontSize: 18),
                         KSizedBox.kHeigh_10,
                         CircularProgressIndicator(),
                       ],
@@ -59,7 +57,8 @@ class HomeScreen extends GetView<HomeController> {
                                 ? const SizedBox(
                                     height: 25,
                                     width: 25,
-                                    child: CircularProgressIndicator())
+                                    child: CircularProgressIndicator(),
+                                  )
                                 : IconButton(
                                     onPressed: () {
                                       controller.getUserLocation();
@@ -93,21 +92,24 @@ class HomeScreen extends GetView<HomeController> {
                             scrollDirection: Axis.horizontal,
                             children: [
                               CategoryCard(
-                                  img: 'assets/weather/splash.png',
-                                  title: 'Min temp',
-                                  data:
-                                      '${minTemp.substring(0, 2)}.${minTemp.substring(3, 4)}°'),
+                                img: 'assets/weather/splash.png',
+                                title: 'Min temp',
+                                data:
+                                    '${minTemp.substring(0, 2)}.${minTemp.substring(3, 4)}°',
+                              ),
                               KSizedBox.kWidth_10,
                               CategoryCard(
-                                  img: 'assets/icons/humidity.png',
-                                  title: 'Humidity',
-                                  data: '${data.main?.humidity ?? '0'}%'),
+                                img: 'assets/icons/humidity.png',
+                                title: 'Humidity',
+                                data: '${data.main?.humidity ?? '0'}%',
+                              ),
                               KSizedBox.kWidth_10,
                               CategoryCard(
-                                  img: 'assets/weather/splash.png',
-                                  title: 'Max temp',
-                                  data:
-                                      '${maxTemp.substring(0, 2)}.${maxTemp.substring(3, 4)}°'),
+                                img: 'assets/weather/splash.png',
+                                title: 'Max temp',
+                                data:
+                                    '${maxTemp.substring(0, 2)}.${maxTemp.substring(3, 4)}°',
+                              ),
                               KSizedBox.kWidth_10,
                               CategoryCard(
                                   img: 'assets/icons/windspeed.png',

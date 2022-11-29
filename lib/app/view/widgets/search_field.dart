@@ -31,17 +31,23 @@ class SearchField extends GetView<SearchController> {
               Radius.circular(15),
             ),
           ),
-          prefixIcon:
-              Icon(Icons.search, color: Color.fromARGB(158, 183, 194, 194)),
+          prefixIcon: Icon(
+            Icons.search,
+            color: Color.fromARGB(158, 183, 194, 194),
+          ),
           fillColor: Color.fromARGB(130, 0, 16, 38),
           filled: true,
           hintText: 'Search by city name',
-          hintStyle: TextStyle(color: Color.fromARGB(158, 183, 194, 194)),
+          hintStyle: TextStyle(
+            color: Color.fromARGB(158, 183, 194, 194),
+          ),
           counterText: '',
         ),
         style: const TextStyle(color: Colors.white),
         onSubmitted: (_) {
-          control.getData(searchController.text.trim());
+          control.getData(
+            searchController.text.trim(),
+          );
           searchController.clear();
         },
       ),

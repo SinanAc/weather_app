@@ -11,7 +11,7 @@ class HomeController extends GetxController {
   RxBool isLoading = false.obs;
   RxString userLocation = 'Location'.obs;
   RxString location = ''.obs;
-  final dataModel = WeatherModel().obs;       
+  final dataModel = WeatherModel().obs;
 
   //fuction to get user's current location
   Future<void> getUserLocation() async {

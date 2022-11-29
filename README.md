@@ -1,16 +1,7 @@
-# weatherapp_starter_project
+# weather_app_flutter
 
-A new Flutter project.
+A simple project to learn weather and locations in flutter
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Hello people,this is a weather management application using open_weather_map api service to fetch weather data and interact with user. The application contains integrating user's current location, getting current location's weather data, and search city name to get that city's weather data. The project is following MVC architecture and using GetX as state management.
